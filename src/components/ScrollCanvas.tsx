@@ -54,17 +54,14 @@ export default function ScrollCanvas() {
 
     loadImages();
 
-    // Scroll animation
-    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
-    
+    // Scroll animation - TESTE: Pin desativado para scroll livre
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
-        start: isDesktop ? "top top" : "top center",
-        end: isDesktop ? "+=2000" : "bottom center",
-        scrub: 0.8,
-        pin: isDesktop,
-        anticipatePin: 1,
+        start: "top bottom", // Começa assim que o topo da seção entra na tela
+        end: "bottom top",   // Termina quando o fundo da seção sai da tela
+        scrub: 1,            // Suavidade um pouco maior para compensar o scroll rápido
+        pin: false,          // DESATIVADO para teste de scroll livre
       },
     });
 
