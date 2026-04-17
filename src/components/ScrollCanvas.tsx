@@ -55,13 +55,15 @@ export default function ScrollCanvas() {
     loadImages();
 
     // Scroll animation
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 1024;
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
-        start: "top top",
-        end: "+=2000", 
-        scrub: 0.8, 
-        pin: true,
+        start: isDesktop ? "top top" : "top center",
+        end: isDesktop ? "+=2000" : "bottom center",
+        scrub: 0.8,
+        pin: isDesktop,
         anticipatePin: 1,
       },
     });
@@ -73,6 +75,7 @@ export default function ScrollCanvas() {
       onUpdate: () => {
         const frameIndex = Math.round(imageInfo.frame);
         const img = images[frameIndex];
+        // Log para debug interno se necessário
         if (img && img.complete && context) {
           context.clearRect(0, 0, canvas.width, canvas.height);
           context.drawImage(img, 0, 0, canvas.width, canvas.height);
@@ -86,42 +89,29 @@ export default function ScrollCanvas() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full h-screen bg-secondary overflow-hidden flex items-center">
-      {/* Background Decorativo - Mais sutil */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-black/10 skew-x-[-10deg] translate-x-20" />
+    <div ref={wrapperRef} className="relative w-full min-h-fit lg:h-screen bg-secondary overflow-hidden flex items-center py-20">
+      {/* Background Decorativo - Centralizado */}
+      <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 
-      <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Lado Esquerdo: Conteúdo Textual */}
-        <div className="flex flex-col gap-6">
-          <div className="inline-block bg-primary text-secondary font-heading text-2xl px-4 py-1 rounded-sm w-fit -rotate-2">
+      <div className="max-w-[1000px] mx-auto px-6 w-full flex flex-col items-center text-center relative z-10 gap-10">
+        
+        {/* Topo: Títulos */}
+        <div className="flex flex-col items-center gap-4">
+          <div className="inline-block bg-primary text-secondary font-heading text-xl md:text-2xl px-4 py-1 rounded-sm w-fit -rotate-2">
             CONCEITO EXCLUSIVO
           </div>
           
-          <h2 className="text-6xl md:text-8xl font-heading text-white/90 leading-none uppercase">
-            A CULTURA DO AÇAÍ COMO <span className="text-primary block">SUPERFOOD</span>
+          <h2 className="text-fluid-h2 font-heading text-white/90 leading-none uppercase">
+            A CULTURA DO AÇAÍ COMO <span className="text-primary block sm:inline sm:ml-2">SUPERFOOD</span>
           </h2>
           
-          <p className="font-sans text-xl text-white/70 max-w-lg leading-relaxed">
+          <p className="text-sm md:text-xl font-sans text-white/70 max-w-2xl leading-relaxed">
             Não vendemos apenas açaí, entregamos uma experiência de nutrição e energia. Nosso processo mantém todas as propriedades antioxidantes da fruta.
           </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-            {[
-              { title: "100% Natural", desc: "Sem corantes ou conservantes artificiais" },
-              { title: "Energia Pura", desc: "O combustível ideal para o seu dia a dia" },
-              { title: "Antioxidante", desc: "Rico em nutrientes que combatem radicais livres" },
-              { title: "Sustentável", desc: "Extração consciente que preserva a Amazônia" }
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col gap-1 border-l-2 border-primary/50 pl-4 bg-white/[0.03] p-4 rounded-r-lg">
-                <span className="font-heading text-2xl text-primary/80 uppercase">{item.title}</span>
-                <span className="font-sans text-sm text-white/60">{item.desc}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
-        {/* Lado Direito: Container da Animação */}
-        <div className="relative w-full aspect-video lg:aspect-square max-w-[600px] mx-auto lg:mx-0">
+        {/* Centro: Container da Animação (Maior destaque) */}
+        <div className="relative w-full aspect-video max-w-[800px] mx-auto group">
           <div className="absolute inset-0 bg-black/40 rounded-3xl border border-white/20 overflow-hidden shadow-2xl z-0">
             <canvas
               ref={canvasRef}
@@ -129,11 +119,25 @@ export default function ScrollCanvas() {
               style={{ display: 'block' }}
             />
           </div>
-          
-          {/* Elementos Decorativos ao redor do Canvas */}
-          <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute -bottom-4 -left-4 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse" />
+          {/* Elementos Decorativos de Fundo do Canvas */}
+          <div className="absolute -inset-4 bg-primary/10 rounded-[40px] blur-3xl -z-10 group-hover:bg-primary/20 transition-colors" />
         </div>
+
+        {/* Base: Benefícios em Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full">
+          {[
+            { title: "100% Natural", desc: "Sem conservantes" },
+            { title: "Energia Pura", desc: "Para o seu dia" },
+            { title: "Antioxidante", desc: "Rico em nutrientes" },
+            { title: "Sustentável", desc: "Preserva a Amazônia" }
+          ].map((item, i) => (
+            <div key={i} className="flex flex-col items-center gap-1 border-t-2 border-primary/50 pt-4 bg-white/[0.03] p-4 rounded-b-lg">
+              <span className="font-heading text-xl md:text-2xl text-primary/80 uppercase leading-none">{item.title}</span>
+              <span className="font-sans text-[10px] md:text-xs text-white/60">{item.desc}</span>
+            </div>
+          ))}
+        </div>
+
       </div>
     </div>
   );

@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '475px',
+        '3xl': '1600px',
+        '4xl': '1920px',
+      },
+      fontSize: {
+        // Tipografia fluida: min-size, ideal-size (vw), max-size
+        'fluid-h1': ['clamp(2.5rem, 8vw, 6rem)', { lineHeight: '0.9' }],
+        'fluid-h2': ['clamp(2rem, 6vw, 5rem)', { lineHeight: '1' }],
+        'fluid-h3': ['clamp(1.5rem, 4vw, 3.5rem)', { lineHeight: '1.1' }],
+        'fluid-p': ['clamp(1rem, 1.2vw, 1.25rem)', { lineHeight: '1.6' }],
+      },
       colors: {
         primary: "#F6E632",
         secondary: "#931B88",

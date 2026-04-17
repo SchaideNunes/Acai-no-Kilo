@@ -12,49 +12,50 @@ export default function Formats() {
 
   return (
     <section id="formatos" className="py-24 bg-background relative z-10 text-foreground">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16 items-center">
-          
-          <div className="lg:w-1/2">
-            <h2 className="text-5xl md:text-7xl font-heading text-foreground uppercase mb-6 leading-none">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h2 className="text-fluid-h2 font-heading text-foreground uppercase mb-6 leading-none">
               Formatos de <span className="text-secondary bg-primary px-2 rounded-sm inline-block -rotate-2 mt-2">Operação</span>
             </h2>
-            <p className="font-sans text-xl mb-8 opacity-80 leading-relaxed">
+            <p className="text-fluid-p font-sans mb-8 opacity-80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
               Diferentes entre si, todos alicerçados no mesmo propósito: <strong>NUTRIR A VIDA COM EMOÇÕES POSITIVAS. 😊</strong>
             </p>
 
-            <div className="flex flex-col gap-4 mb-8">
+            <div className="flex flex-col gap-4 mb-8 items-center lg:items-start text-left">
               {features.map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-secondary" size={24} />
+                <div key={i} className="flex items-center gap-3 w-full max-w-md lg:max-w-none">
+                  <CheckCircle2 className="text-secondary shrink-0" size={24} />
                   <span className="font-sans font-semibold text-lg">{item}</span>
                 </div>
               ))}
             </div>
 
-            <button className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-lg group">
+            <button className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-lg group w-full sm:w-auto">
               QUERO FAZER PARTE DA FAMÍLIA
-            </button>          </div>
+            </button>
+          </div>
 
-          <div className="lg:w-1/2 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {/* Cards com contraste corrigido e cores da marca */}
-            <div className="bg-secondary/5 border border-secondary/20 p-8 rounded-base hover:border-primary flex flex-col gap-4 transition-all hover:bg-secondary/10 group">
-              <div className="w-14 h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
-                <Store className="text-secondary" size={32} />
+            <div className="bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 group">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
+                <Store className="text-secondary" size={28} />
               </div>
-              <h3 className="font-heading text-4xl text-secondary">Loja de Rua</h3>
-              <p className="font-sans text-foreground/80 text-lg leading-relaxed">
-                Ideal para áreas de alto fluxo. Vitrine atrativa e espaço otimizado para experiência do cliente.
+              <h3 className="font-heading text-3xl md:text-4xl text-secondary">Loja de Rua</h3>
+              <p className="font-sans text-foreground/80 text-base md:text-lg leading-relaxed">
+                Ideal para áreas de alto fluxo. Vitrine atrativa e espaço otimizado.
               </p>
             </div>
 
-            <div className="bg-secondary/5 border border-secondary/20 p-8 rounded-base hover:border-primary flex flex-col gap-4 transition-all hover:bg-secondary/10 mt-0 md:mt-12 group">
-              <div className="w-14 h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
-                <Building2 className="text-secondary" size={32} />
+            <div className="bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 mt-0 sm:mt-8 lg:mt-12 group">
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
+                <Building2 className="text-secondary" size={28} />
               </div>
-              <h3 className="font-heading text-4xl text-secondary">Quiosque</h3>
-              <p className="font-sans text-foreground/80 text-lg leading-relaxed">
-                Feito para shoppings e galerias. Alta visibilidade e baixo custo de implantação.
+              <h3 className="font-heading text-3xl md:text-4xl text-secondary">Quiosque</h3>
+              <p className="font-sans text-foreground/80 text-base md:text-lg leading-relaxed">
+                Feito para shoppings e galerias. Alta visibilidade e baixo custo.
               </p>
             </div>
           </div>

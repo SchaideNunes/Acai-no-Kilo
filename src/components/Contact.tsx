@@ -13,38 +13,38 @@ export default function Contact() {
   };
 
   return (
-    <section id="franquia" className="py-24 bg-secondary relative z-10">
-      <div className="max-w-[1200px] mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-16 p-12 bg-black/20 rounded-3xl border border-white/10 shadow-3xl">
+    <section id="franquia" className="relative py-24 bg-secondary overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 p-6 sm:p-12 bg-black/20 rounded-3xl border border-white/10 shadow-3xl">
           
-          <div className="lg:w-1/2 flex flex-col justify-center">
+          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
             <div className="inline-block bg-primary text-secondary font-heading text-xl px-4 py-1 rounded-sm w-fit -rotate-2 mb-6">
               SUA OPORTUNIDADE
             </div>
-            <h2 className="text-5xl md:text-7xl font-heading text-white uppercase mb-6 leading-none">
+            <h2 className="text-fluid-h2 font-heading text-white uppercase mb-6 leading-none">
               DÊ O PRIMEIRO PASSO PARA <span className="text-primary">SEU SUCESSO</span>
             </h2>
-            <p className="font-sans text-xl text-white/80 mb-8 leading-relaxed">
+            <p className="text-fluid-p font-sans text-white/80 mb-8 leading-relaxed max-w-xl">
               Junte-se à rede que mais cresce no Brasil. Preencha o formulário e receba nosso material completo para novos investidores.
             </p>
             
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 w-full max-w-md lg:max-w-none text-left">
                <div className="flex items-center gap-3 text-white">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
                     <MessageCircle className="text-primary" size={20} />
                   </div>
-                  <span className="font-sans font-bold">Suporte total na escolha do ponto</span>
+                  <span className="font-sans font-bold text-sm md:text-base">Suporte total na escolha do ponto</span>
                </div>
                <div className="flex items-center gap-3 text-white">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center">
+                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
                     <MessageCircle className="text-primary" size={20} />
                   </div>
-                  <span className="font-sans font-bold">Consultoria de campo especializada</span>
+                  <span className="font-sans font-bold text-sm md:text-base">Consultoria de campo especializada</span>
                </div>
             </div>
           </div>
 
-          <div className="lg:w-1/2 bg-white/5 backdrop-blur-md p-10 rounded-2xl border border-white/20 relative shadow-inner">
+          <div className="w-full lg:w-1/2 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/20 relative shadow-inner">
             <h3 className="font-heading text-4xl text-primary mb-8 tracking-wide">Comece agora</h3>
             
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
@@ -81,19 +81,19 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 mt-6">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6">
                 <button 
                   type="button"
-                  className="bg-primary text-secondary font-heading text-2xl px-10 py-4 rounded-xl hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-95 transition-all flex-1"
+                  className="bg-primary text-secondary font-heading text-xl md:text-2xl px-6 md:px-10 py-3 md:py-4 rounded-lg md:rounded-xl hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-95 transition-all flex-1"
                 >
                   ENVIAR MEUS DADOS
                 </button>
                 <button
                   type="button"
                   onClick={handleCopyLink}
-                  className="px-6 py-4 border border-white/20 text-white font-sans font-bold text-xs uppercase rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2"
+                  className="px-4 md:px-6 py-3 md:py-4 border border-white/20 text-white font-sans font-bold text-[10px] md:text-xs uppercase rounded-lg md:rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2"
                 >
-                  {copied ? "Link Copiado!" : "Compartilhar"}
+                  {copied ? "Link Copiado!" : "Copiar contato"}
                 </button>
               </div>
             </form>

@@ -39,21 +39,21 @@ export default function Numbers() {
         <SectionDividerZ />
       </div>
 
-      <div ref={containerRef} className="max-w-[1200px] mx-auto px-6">
+      <div ref={containerRef} className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-heading text-primary uppercase mb-4 [text-shadow:0_2px_4px_rgba(75,32,65,0.4)]">
+          <h2 className="text-fluid-h2 font-heading text-primary uppercase mb-4 [text-shadow:0_2px_4px_rgba(75,32,65,0.4)]">
             Nossos Números
           </h2>
-          <p className="font-sans text-xl md:text-2xl opacity-90 font-medium">Resultados que não param de crescer</p>
+          <p className="text-fluid-p font-sans opacity-90 font-medium max-w-2xl mx-auto">Resultados que não param de crescer</p>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-8">
           {stats.map((stat, i) => (
-            <div key={i} className="stat-card flex flex-col items-center text-center p-6 bg-foreground/10 rounded-base border border-primary/20 backdrop-blur-sm">
-              <span className="text-5xl md:text-6xl font-heading text-primary mb-2 tracking-tighter">
+            <div key={i} className="stat-card flex flex-col items-center text-center p-4 sm:p-6 md:p-8 bg-foreground/10 rounded-base border border-primary/20 backdrop-blur-sm hover:bg-foreground/20 transition-colors">
+              <span className="text-3xl xs:text-4xl md:text-6xl lg:text-7xl font-heading text-primary mb-1 md:mb-2 tracking-tighter">
                 {stat.value}
               </span>
-              <span className="font-sans text-sm md:text-base font-bold uppercase tracking-wide opacity-90">
+              <span className="font-sans text-[10px] xs:text-xs md:text-sm lg:text-base font-bold uppercase tracking-wide opacity-90 leading-tight">
                 {stat.label}
               </span>
             </div>
