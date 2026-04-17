@@ -34,31 +34,35 @@ export default function ScrollCanvas() {
     };
 
     // Preload images
-    for (let i = 1; i <= frameCount; i++) {
-      const img = new Image();
-      img.src = currentFrame(i);
-      img.onload = () => {
-        loadedImages++;
-        if (loadedImages === frameCount) {
-          setImagesPreloaded(true);
-        }
-      };
-      images.push(img);
-    }
-
-    // Desenha o primeiro frame enquanto as imagens carregam ou quando finalizar
-    images[0].onload = () => {
-      context.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+    const loadImages = () => {
+      for (let i = 1; i <= frameCount; i++) {
+        const img = new Image();
+        img.src = currentFrame(i);
+        img.onload = () => {
+          loadedImages++;
+          if (loadedImages === frameCount) {
+            setImagesPreloaded(true);
+          }
+          // Draw first frame as soon as it's ready
+          if (i === 1 && context) {
+            context.drawImage(img, 0, 0, canvas.width, canvas.height);
+          }
+        };
+        images.push(img);
+      }
     };
 
-    // Ocultar a scrollbar ou ajustá-la dependendo de como vamos renderizar isso
+    loadImages();
+
+    // Scroll animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
         start: "top top",
-        end: "+=3000", // Aumente conforme a duração que quiser o scroll fixo (pinned)
-        scrub: 0.5,
+        end: "+=2000", 
+        scrub: true,
         pin: true,
+        anticipatePin: 1,
       },
     });
 
@@ -68,10 +72,10 @@ export default function ScrollCanvas() {
       ease: "none",
       onUpdate: () => {
         const frameIndex = Math.round(imageInfo.frame);
-        if (images[frameIndex] && images[frameIndex].complete) {
+        const img = images[frameIndex];
+        if (img && img.complete && context) {
           context.clearRect(0, 0, canvas.width, canvas.height);
-          // Manter o desenho centrado ou "cover"
-          context.drawImage(images[frameIndex], 0, 0, canvas.width, canvas.height);
+          context.drawImage(img, 0, 0, canvas.width, canvas.height);
         }
       },
     });
@@ -82,20 +86,54 @@ export default function ScrollCanvas() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full h-screen bg-foreground overflow-hidden">
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 mix-blend-screen opacity-60">
-        <canvas
-          ref={canvasRef}
-          className="w-full h-full max-w-[1200px] object-contain opacity-80"
-        />
-      </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-10 p-4">
-        <h2 className="text-4xl md:text-5xl font-heading text-background uppercase mt-[-20px] bg-secondary/80 backdrop-blur-sm px-6 py-2 rounded-base">
-          A CULTURA DO AÇAÍ COMO
-        </h2>
-        <h1 className="text-[100px] md:text-[180px] leading-none font-heading font-black text-primary tracking-tighter text-center uppercase mix-blend-normal [text-shadow:0_4px_16px_rgba(0,0,0,0.6)]">
-          SUPERFOOD
-        </h1>
+    <div ref={wrapperRef} className="relative w-full h-screen bg-secondary overflow-hidden flex items-center">
+      {/* Background Decorativo - Mais sutil para não atrapalhar o texto */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-black/20 skew-x-[-10deg] translate-x-20" />
+
+      <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+        {/* Lado Esquerdo: Conteúdo Textual */}
+        <div className="flex flex-col gap-6">
+          <div className="inline-block bg-primary text-secondary font-heading text-2xl px-4 py-1 rounded-sm w-fit -rotate-2">
+            CONCEITO EXCLUSIVO
+          </div>
+          
+          <h2 className="text-6xl md:text-8xl font-heading text-white leading-none uppercase">
+            A CULTURA DO AÇAÍ COMO <span className="text-primary block">SUPERFOOD</span>
+          </h2>
+          
+          <p className="font-sans text-xl text-white/90 max-w-lg leading-relaxed">
+            Não vendemos apenas açaí, entregamos uma experiência de nutrição e energia. Nosso processo mantém todas as propriedades antioxidantes da fruta.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+            {[
+              { title: "100% Natural", desc: "Sem corantes ou conservantes artificiais" },
+              { title: "Energia Pura", desc: "O combustível ideal para o seu dia a dia" },
+              { title: "Antioxidante", desc: "Rico em nutrientes que combatem radicais livres" },
+              { title: "Sustentável", desc: "Extração consciente que preserva a Amazônia" }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col gap-1 border-l-2 border-primary pl-4 bg-white/5 p-4 rounded-r-lg">
+                <span className="font-heading text-2xl text-primary uppercase">{item.title}</span>
+                <span className="font-sans text-sm text-white/80">{item.desc}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Lado Direito: Container da Animação */}
+        <div className="relative w-full aspect-video lg:aspect-square max-w-[600px] mx-auto lg:mx-0">
+          <div className="absolute inset-0 bg-black/40 rounded-3xl border border-white/20 overflow-hidden shadow-2xl z-0">
+            <canvas
+              ref={canvasRef}
+              className="w-full h-full object-cover opacity-100"
+              style={{ display: 'block' }}
+            />
+          </div>
+          
+          {/* Elementos Decorativos ao redor do Canvas */}
+          <div className="absolute -top-4 -right-4 w-32 h-32 bg-primary/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-4 -left-4 w-40 h-40 bg-white/10 rounded-full blur-3xl animate-pulse" />
+        </div>
       </div>
     </div>
   );

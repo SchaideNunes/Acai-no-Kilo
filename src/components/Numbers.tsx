@@ -35,7 +35,7 @@ export default function Numbers() {
 
   return (
     <section id="números" className="bg-secondary relative py-24 text-background mt-[-2px]">
-      <div className="absolute top-0 left-0 w-full rotate-180 -translate-y-[90%]">
+      <div className="absolute top-0 left-0 w-full -translate-y-[98%] pointer-events-none">
         <SectionDividerZ />
       </div>
 

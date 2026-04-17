@@ -23,7 +23,7 @@ export default function Hero() {
             A oportunidade de investimento lucrativo que você procura. Seja franqueado da marca chancelada 3 anos consecutivos pela ABF.
           </p>
           <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button className="bg-secondary text-background font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-foreground active:scale-95 transition-all shadow-[0_8px_30px_rgb(147,27,136,0.15)] flex items-center gap-2 group w-full sm:w-auto justify-center">
+            <button className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-[0_8px_30px_rgb(147,27,136,0.15)] flex items-center gap-2 group w-full sm:w-auto justify-center">
               DÊ O PRIMEIRO PASSO
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>

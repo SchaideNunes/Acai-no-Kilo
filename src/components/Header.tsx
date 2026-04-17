@@ -29,9 +29,18 @@ export default function Header() {
         ))}
       </nav>
 
-      <button className="bg-foreground text-background font-heading text-xl px-6 py-[10px] rounded-base hover:bg-primary hover:text-foreground active:scale-95 disabled:opacity-50 transition-all flex items-center gap-2 group shadow-md pt-[14px]">
-        SEJA FRANQUEADO
-        <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+      <button className="relative group overflow-hidden bg-primary text-background font-heading text-lg px-6 py-2 rounded-full hover:shadow-[0_0_15px_rgba(246,230,50,0.3)] active:scale-95 transition-all flex items-center gap-2">
+        {/* Camada de brilho no hover */}
+        <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300" />
+        
+        <span className="relative z-10 pt-0.5 tracking-tight">SEJA FRANQUEADO</span>
+        
+        <div className="relative z-10 bg-background/20 p-0.5 rounded-full group-hover:bg-background/40 transition-colors">
+          <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+        </div>
+        
+        {/* Borda animada discreta */}
+        <div className="absolute inset-0 rounded-full border border-primary/40 animate-pulse group-hover:animate-none" />
       </button>
     </header>
   );
