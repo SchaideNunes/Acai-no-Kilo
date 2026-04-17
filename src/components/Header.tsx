@@ -6,8 +6,8 @@ import { ArrowRight } from "lucide-react";
 export default function Header() {
   return (
     <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[95%] max-w-[1200px] z-50 bg-background/50 backdrop-blur-xl border border-white/40 shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-6 py-3 rounded-2xl flex items-center justify-between transition-all">
-      <div className="flex items-center gap-3">
-        {/* Placeholder para logo com tamanho ajustado */}
+      <a href="#" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        {/* Logo clicável para voltar ao topo */}
         <div className="relative w-12 h-12 flex items-center justify-center bg-transparent mix-blend-multiply">
           <img 
              src="/assets/Logo açai.webp" 
@@ -15,7 +15,7 @@ export default function Header() {
              className="w-full h-full object-contain"
           />
         </div>
-      </div>
+      </a>
 
       <nav className="hidden lg:flex items-center gap-8">
         {["Franquia", "Números", "Formatos", "Vantagens", "Produtos"].map((item) => (

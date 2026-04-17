@@ -60,7 +60,7 @@ export default function ScrollCanvas() {
         trigger: wrapperRef.current,
         start: "top top",
         end: "+=2000", 
-        scrub: true,
+        scrub: 0.8, 
         pin: true,
         anticipatePin: 1,
       },
@@ -87,8 +87,8 @@ export default function ScrollCanvas() {
 
   return (
     <div ref={wrapperRef} className="relative w-full h-screen bg-secondary overflow-hidden flex items-center">
-      {/* Background Decorativo - Mais sutil para não atrapalhar o texto */}
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-black/20 skew-x-[-10deg] translate-x-20" />
+      {/* Background Decorativo - Mais sutil */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-black/10 skew-x-[-10deg] translate-x-20" />
 
       <div className="max-w-[1400px] mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
         {/* Lado Esquerdo: Conteúdo Textual */}
@@ -97,11 +97,11 @@ export default function ScrollCanvas() {
             CONCEITO EXCLUSIVO
           </div>
           
-          <h2 className="text-6xl md:text-8xl font-heading text-white leading-none uppercase">
+          <h2 className="text-6xl md:text-8xl font-heading text-white/90 leading-none uppercase">
             A CULTURA DO AÇAÍ COMO <span className="text-primary block">SUPERFOOD</span>
           </h2>
           
-          <p className="font-sans text-xl text-white/90 max-w-lg leading-relaxed">
+          <p className="font-sans text-xl text-white/70 max-w-lg leading-relaxed">
             Não vendemos apenas açaí, entregamos uma experiência de nutrição e energia. Nosso processo mantém todas as propriedades antioxidantes da fruta.
           </p>
 
@@ -112,9 +112,9 @@ export default function ScrollCanvas() {
               { title: "Antioxidante", desc: "Rico em nutrientes que combatem radicais livres" },
               { title: "Sustentável", desc: "Extração consciente que preserva a Amazônia" }
             ].map((item, i) => (
-              <div key={i} className="flex flex-col gap-1 border-l-2 border-primary pl-4 bg-white/5 p-4 rounded-r-lg">
-                <span className="font-heading text-2xl text-primary uppercase">{item.title}</span>
-                <span className="font-sans text-sm text-white/80">{item.desc}</span>
+              <div key={i} className="flex flex-col gap-1 border-l-2 border-primary/50 pl-4 bg-white/[0.03] p-4 rounded-r-lg">
+                <span className="font-heading text-2xl text-primary/80 uppercase">{item.title}</span>
+                <span className="font-sans text-sm text-white/60">{item.desc}</span>
               </div>
             ))}
           </div>

@@ -35,7 +35,7 @@ export default function Hero() {
             <img 
               src="/assets/Açai.webp" 
               alt="Açaí Delicioso"
-              className="w-full h-full object-contain filter drop-shadow-2xl z-10 relative scale-110 hover:scale-105 transition-transform duration-700"
+              className="w-full h-full object-contain filter drop-shadow-2xl z-10 relative scale-[1.27] hover:scale-[1.32] transition-transform duration-700"
             />
             {/* Elemento de fundo geométrico */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary rounded-full z-0 opacity-20 blur-xl" />

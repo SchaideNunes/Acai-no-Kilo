@@ -15,7 +15,8 @@ export default function Footer() {
               />
             </div>
             <p className="font-sans text-lg text-foreground/70 leading-relaxed">
-              Nutrir a vida com emoções positivas. A rede de açaí que mais cresce no Brasil.
+              📍 +60 lojas BA/MG/DF/GO/ES<br />
+              <span className="font-bold text-secondary">Aberto das 10:00 às 22:00 todos os dias</span>
             </p>
           </div>
 
@@ -35,25 +36,31 @@ export default function Footer() {
 
           {/* Coluna 3: Contato/Social */}
           <div>
-            <h4 className="font-heading text-2xl text-secondary mb-6 uppercase">Redes Sociais</h4>
+            <h4 className="font-heading text-2xl text-secondary mb-6 uppercase">Siga-nos</h4>
             <ul className="flex flex-col gap-3">
-              {["Instagram", "Facebook", "LinkedIn", "YouTube"].map((item) => (
-                <li key={item}>
-                  <a href="#" className="font-sans text-sm font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-70 hover:opacity-100">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="https://www.instagram.com/acainokiloserrinha/" target="_blank" className="font-sans text-sm font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-70 hover:opacity-100">Instagram</a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/acainokilooficial" target="_blank" className="font-sans text-sm font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-70 hover:opacity-100">Facebook</a>
+              </li>
+              <li>
+                <a href="https://x.com/acainokilo" target="_blank" className="font-sans text-sm font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-70 hover:opacity-100">X (Twitter)</a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@acainokilooficial" target="_blank" className="font-sans text-sm font-bold uppercase tracking-widest hover:text-secondary transition-colors opacity-70 hover:opacity-100">YouTube</a>
+              </li>
             </ul>
           </div>
 
           {/* Coluna 4: Localização */}
           <div>
-            <h4 className="font-heading text-2xl text-secondary mb-6 uppercase">Sede</h4>
+            <h4 className="font-heading text-2xl text-secondary mb-6 uppercase">Onde Estamos</h4>
             <p className="font-sans text-sm text-foreground/70 uppercase tracking-wider leading-loose">
-              Av. Principal, 1234<br />
-              Centro, São Paulo - SP<br />
-              01234-567
+              Praça Centenário, R. Lauro Mota, 34<br />
+              Centro, Serrinha - BA<br />
+              48700-000<br />
+              <span className="font-bold mt-2 block">📞 (75) 99154-2626</span>
             </p>
           </div>
         </div>
