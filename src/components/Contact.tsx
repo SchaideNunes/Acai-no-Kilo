@@ -45,7 +45,7 @@ export default function Contact() {
     <section id="franquia" ref={sectionRef} className="relative py-12 md:py-24 bg-secondary overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 p-6 sm:p-12 bg-black/20 rounded-3xl border border-white/10 shadow-3xl">
-          
+
           <div className="contact-info w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
             <div className="inline-block bg-primary text-secondary font-heading text-xl px-4 py-1 rounded-sm w-fit -rotate-2 mb-6">
               SUA OPORTUNIDADE
@@ -56,39 +56,39 @@ export default function Contact() {
             <p className="text-fluid-p font-sans text-white/80 mb-8 leading-relaxed max-w-xl">
               Junte-se à rede que mais cresce no Brasil. Preencha o formulário e receba nosso material completo para novos investidores.
             </p>
-            
+
             <div className="flex flex-col gap-4 w-full max-w-md lg:max-w-none text-left">
-               <div className="flex items-center gap-3 text-white">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
-                    <MessageCircle className="text-primary" size={20} />
-                  </div>
-                  <span className="font-sans font-bold text-sm md:text-base">Suporte total na escolha do ponto</span>
-               </div>
-               <div className="flex items-center gap-3 text-white">
-                  <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
-                    <MessageCircle className="text-primary" size={20} />
-                  </div>
-                  <span className="font-sans font-bold text-sm md:text-base">Consultoria de campo especializada</span>
-               </div>
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                  <MessageCircle className="text-primary" size={20} />
+                </div>
+                <span className="font-sans font-bold text-sm md:text-base">Suporte total na escolha do ponto</span>
+              </div>
+              <div className="flex items-center gap-3 text-white">
+                <div className="w-10 h-10 bg-primary/20 rounded-full flex items-center justify-center shrink-0">
+                  <MessageCircle className="text-primary" size={20} />
+                </div>
+                <span className="font-sans font-bold text-sm md:text-base">Consultoria de campo especializada</span>
+              </div>
             </div>
           </div>
 
           <div className="contact-card w-full lg:w-1/2 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/20 relative shadow-inner">
             <h3 className="font-heading text-4xl text-primary mb-8 tracking-wide">Comece agora</h3>
-            
+
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
               <div className="relative group">
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   className="w-full bg-transparent border-b-2 border-white/20 px-0 py-3 font-sans text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30"
                   placeholder="Seu nome completo"
                 />
                 <label className="absolute left-0 -top-4 text-xs font-bold text-primary uppercase tracking-widest opacity-0 group-focus-within:opacity-100 transition-opacity">Nome Completo</label>
               </div>
-              
+
               <div className="relative group">
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   className="w-full bg-transparent border-b-2 border-white/20 px-0 py-3 font-sans text-white focus:outline-none focus:border-primary transition-all placeholder:text-white/30"
                   placeholder="Seu melhor e-mail"
                 />
@@ -111,7 +111,7 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6">
-                <a 
+                <a
                   href="https://wa.me/557591585290"
                   target="_blank"
                   rel="noopener noreferrer"
