@@ -57,13 +57,16 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <button className="hidden sm:flex relative group overflow-hidden bg-primary text-background font-heading text-lg px-6 py-2 rounded-full hover:shadow-[0_0_15px_rgba(246,230,50,0.3)] active:scale-95 transition-all items-center gap-2">
+          <a 
+            href="#franquia"
+            className="hidden sm:flex relative group overflow-hidden bg-primary text-background font-heading text-lg px-6 py-2 rounded-full hover:shadow-[0_0_15px_rgba(246,230,50,0.3)] active:scale-95 transition-all items-center gap-2"
+          >
             <span className="relative z-10 pt-0.5 tracking-tight">SEJA FRANQUEADO</span>
             <div className="relative z-10 bg-background/20 p-0.5 rounded-full">
               <ArrowRight size={14} />
             </div>
-            <div className="absolute inset-0 rounded-full border border-primary/40 animate-pulse group-hover:animate-none" />
-          </button>
+            <div className="absolute inset-0 rounded-full border border-primary/40 group-hover:animate-none" />
+          </a>
 
           {/* Botão Hambúrguer Mobile */}
           <button 
@@ -121,9 +124,13 @@ export default function Header() {
           </nav>
 
           <div className={`mt-auto transform transition-all duration-1000 delay-400 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-12 opacity-0"}`}>
-            <button className="w-full bg-primary text-secondary font-heading text-xl sm:text-2xl py-4 rounded-2xl active:scale-95 transition-all shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:bg-white hover:text-secondary">
+            <a 
+              href="#franquia"
+              onClick={() => setIsOpen(false)}
+              className="w-full bg-primary text-secondary font-heading text-xl sm:text-2xl py-4 rounded-2xl active:scale-95 transition-all shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:bg-white hover:text-secondary flex items-center justify-center"
+            >
               SEJA FRANQUEADO
-            </button>
+            </a>
           </div>
         </div>
       </div>

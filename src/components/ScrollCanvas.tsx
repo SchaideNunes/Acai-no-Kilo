@@ -54,14 +54,14 @@ export default function ScrollCanvas() {
 
     loadImages();
 
-    // Scroll animation - TESTE: Pin desativado para scroll livre
+    // Scroll animation
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: wrapperRef.current,
-        start: "top bottom", // Começa assim que o topo da seção entra na tela
-        end: "bottom top",   // Termina quando o fundo da seção sai da tela
-        scrub: 1,            // Suavidade um pouco maior para compensar o scroll rápido
-        pin: false,          // DESATIVADO para teste de scroll livre
+        start: "top 60%",    // Começa quando o topo da seção chega a 60% da tela (mais pra baixo)
+        end: "bottom 20%",   // Termina quando o fundo da seção chega a 20% do topo
+        scrub: 1.5,          // Um pouco mais suave
+        pin: false,
       },
     });
 
@@ -86,7 +86,7 @@ export default function ScrollCanvas() {
   }, []);
 
   return (
-    <div ref={wrapperRef} className="relative w-full min-h-fit lg:h-screen bg-secondary overflow-hidden flex items-center py-20">
+    <div ref={wrapperRef} className="relative w-full min-h-fit lg:h-screen bg-[#3b1533] overflow-hidden flex items-center py-20">
       {/* Background Decorativo - Centralizado */}
       <div className="absolute inset-0 bg-black/10 pointer-events-none" />
 

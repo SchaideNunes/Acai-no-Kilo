@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Store, MapPin, Building2, CheckCircle2 } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Formats() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.from(".format-card", {
+        scrollTrigger: {
+          trigger: ".format-card-grid",
+          start: "top 90%",
+        },
+        x: 60,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.out",
+        immediateRender: false,
+      });
+    }, containerRef);
+    return () => ctx.revert();
+  }, []);
+
   const features = [
     "Inovação constante",
     "Produto pronto para venda",
@@ -11,12 +34,12 @@ export default function Formats() {
   ];
 
   return (
-    <section id="formatos" className="py-24 bg-background relative z-10 text-foreground">
+    <section id="formatos" ref={containerRef} className="py-24 bg-background relative z-10 text-foreground">
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
 
           <div className="w-full lg:w-1/2 text-center lg:text-left">
-            <h2 className="text-fluid-h2 font-heading text-foreground uppercase mb-6 leading-none">
+            <h2 className="formats-title text-fluid-h2 font-heading text-foreground uppercase mb-6 leading-none">
               Formatos de <span className="text-secondary bg-primary px-2 rounded-sm inline-block -rotate-2 mt-2">Operação</span>
             </h2>
             <p className="text-fluid-p font-sans mb-8 opacity-80 leading-relaxed max-w-2xl mx-auto lg:mx-0">
@@ -32,14 +55,17 @@ export default function Formats() {
               ))}
             </div>
 
-            <button className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-lg group w-full sm:w-auto">
+            <a 
+              href="#franquia"
+              className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-lg group w-full sm:w-auto inline-flex items-center justify-center"
+            >
               QUERO FAZER PARTE DA FAMÍLIA
-            </button>
+            </a>
           </div>
 
-          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 format-card-grid">
             {/* Cards com contraste corrigido e cores da marca */}
-            <div className="bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 group">
+            <div className="format-card bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 group">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
                 <Store className="text-secondary" size={28} />
               </div>
@@ -49,7 +75,7 @@ export default function Formats() {
               </p>
             </div>
 
-            <div className="bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 mt-0 sm:mt-8 lg:mt-12 group">
+            <div className="format-card bg-secondary/5 border border-secondary/20 p-6 md:p-8 rounded-base hover:border-primary flex flex-col gap-3 md:gap-4 transition-all hover:bg-secondary/10 mt-0 sm:mt-8 lg:mt-12 group">
               <div className="w-12 h-12 md:w-14 md:h-14 bg-primary rounded-xl flex justify-center items-center shadow-lg group-hover:scale-110 transition-transform">
                 <Building2 className="text-secondary" size={28} />
               </div>

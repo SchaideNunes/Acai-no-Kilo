@@ -1,7 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { SectionDividerV } from "./Dividers";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Products() {
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+    const ctx = gsap.context(() => {
+      gsap.from(".product-card", {
+        scrollTrigger: {
+          trigger: ".product-grid",
+          start: "top 90%",
+        },
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        immediateRender: false,
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
+
   const products = [
     { title: "5 Sabores", desc: "De açaís variados" },
     { title: "13 Cremes", desc: "Com receita exclusiva" },
@@ -9,22 +32,24 @@ export default function Products() {
   ];
 
   return (
-    <section id="produtos" className="relative w-full bg-secondary text-white py-16 md:py-24 pb-24 md:pb-32">
+    <section id="produtos" ref={sectionRef} className="relative w-full bg-secondary text-white py-8 md:py-24 pb-12 md:pb-32">
       <div className="absolute top-0 left-0 w-full -translate-y-full rotate-180">
         <SectionDividerV />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 text-center">
-        <h2 className="text-fluid-h2 font-heading text-primary uppercase mb-4 tracking-tight">
-          Mix de Produtos
-        </h2>
-        <p className="text-fluid-p font-sans text-white/80 max-w-2xl mx-auto mb-12 md:mb-16">
-          Qualidade excepcional em cada detalhe. Nossas receitas exclusivas garantem um sabor inigualável.
-        </p>
+        <div className="products-header">
+          <h2 className="text-fluid-h2 font-heading text-primary uppercase mb-4 tracking-tight">
+            Mix de Produtos
+          </h2>
+          <p className="text-fluid-p font-sans text-white/80 max-w-2xl mx-auto mb-12 md:mb-16">
+            Qualidade excepcional em cada detalhe. Nossas receitas exclusivas garantem um sabor inigualável.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 product-grid">
           {products.map((p, i) => (
-            <div key={i} className={`flex flex-col items-center p-6 md:p-10 bg-black/20 rounded-2xl border border-white/10 relative overflow-hidden group hover:bg-black/30 transition-all hover:border-primary/40 shadow-xl ${i === 2 ? 'col-span-2 lg:col-span-1' : ''}`}>
+            <div key={i} className={`product-card flex flex-col items-center p-6 md:p-10 bg-black/20 rounded-2xl border border-white/10 relative overflow-hidden group hover:bg-black/30 transition-all hover:border-primary/40 shadow-xl ${i === 2 ? 'col-span-2 lg:col-span-1' : ''}`}>
               {/* Efeito de brilho no hover */}
               <div className="absolute -top-10 -right-10 w-24 h-24 bg-primary/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
               

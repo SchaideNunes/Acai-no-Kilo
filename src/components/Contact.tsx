@@ -1,23 +1,52 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { SectionDividerV } from "./Dividers";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".contact-info", {
+        scrollTrigger: {
+          trigger: ".contact-info",
+          start: "top 85%",
+        },
+        x: -50,
+        opacity: 0,
+        duration: 1,
+      });
+
+      gsap.from(".contact-card", {
+        scrollTrigger: {
+          trigger: ".contact-card",
+          start: "top 80%",
+        },
+        x: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.2,
+      });
+    }, sectionRef);
+    return () => ctx.revert();
+  }, []);
 
   const handleCopyLink = () => {
-    navigator.clipboard.writeText("https://franquia.acainokilo.com.br/");
+    navigator.clipboard.writeText("+55 75 9158-5290");
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
 
   return (
-    <section id="franquia" className="relative py-24 bg-secondary overflow-hidden">
+    <section id="franquia" ref={sectionRef} className="relative py-12 md:py-24 bg-secondary overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 p-6 sm:p-12 bg-black/20 rounded-3xl border border-white/10 shadow-3xl">
           
-          <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
+          <div className="contact-info w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left items-center lg:items-start">
             <div className="inline-block bg-primary text-secondary font-heading text-xl px-4 py-1 rounded-sm w-fit -rotate-2 mb-6">
               SUA OPORTUNIDADE
             </div>
@@ -44,7 +73,7 @@ export default function Contact() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/20 relative shadow-inner">
+          <div className="contact-card w-full lg:w-1/2 bg-white/5 backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/20 relative shadow-inner">
             <h3 className="font-heading text-4xl text-primary mb-8 tracking-wide">Comece agora</h3>
             
             <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
@@ -82,12 +111,14 @@ export default function Contact() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 md:gap-4 mt-6">
-                <button 
-                  type="button"
-                  className="bg-primary text-secondary font-heading text-xl md:text-2xl px-6 md:px-10 py-3 md:py-4 rounded-lg md:rounded-xl hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] active:scale-95 transition-all flex-1"
+                <a 
+                  href="https://wa.me/557591585290"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-secondary font-heading text-xl md:text-2xl px-6 md:px-10 py-3 md:py-4 rounded-lg md:rounded-xl hover:bg-secondary hover:text-white hover:shadow-[0_0_30px_rgba(147,27,136,0.3)] active:scale-95 transition-all flex-1 inline-flex items-center justify-center"
                 >
                   ENVIAR MEUS DADOS
-                </button>
+                </a>
                 <button
                   type="button"
                   onClick={handleCopyLink}
