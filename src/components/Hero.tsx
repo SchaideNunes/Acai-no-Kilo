@@ -50,14 +50,20 @@ export default function Hero() {
         </div>
 
         <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center hero-image">
-          <div className="relative w-full max-w-[300px] sm:max-w-[400px] lg:max-w-md aspect-[4/5] z-10">
-            <img 
-              src="/assets/Açai.webp" 
+          <div className="relative w-full max-w-[320px] sm:max-w-[450px] lg:max-w-[600px] aspect-square z-10 flex items-center justify-center">
+            {/* Imagem com sombra projetada suave */}
+            <img
+              src="/assets/Açai_hero.webp"
               alt="Açaí Delicioso"
-              className="w-full h-full object-contain filter drop-shadow-2xl z-10 relative scale-110 sm:scale-[1.2] lg:scale-[1.27] hover:scale-[1.32] transition-transform duration-700"
+              className="w-full h-full object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] z-10 relative scale-[1.4] sm:scale-[1.6] lg:scale-[1.8] hover:scale-[1.85] transition-transform duration-1000 ease-out"
             />
-            {/* Elemento de fundo geométrico */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-primary rounded-full z-0 opacity-20 blur-xl" />
+            
+            {/* Aura Roxa Premium (Substituindo o amarelo) */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary/15 rounded-full z-0 blur-[120px]" />
+            <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-secondary/20 rounded-[100%] z-0 blur-[60px]" />
+            
+            {/* Sombra de Contato (Ground Shadow) para dar peso */}
+            <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[60%] h-[20px] bg-black/20 rounded-full z-0 blur-xl" />
           </div>
         </div>
       </div>
