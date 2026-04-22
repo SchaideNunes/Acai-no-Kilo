@@ -3,17 +3,10 @@
 @tailwind utilities;
 
 :root {
-  --background: #FFFFFF;
-  --foreground: #4B2041;
+  --background: #2a1224;
+  --foreground: #fcfcfc;
   --font-bebas-neue: 'Bebas Neue', sans-serif;
   --font-raleway: 'Raleway', sans-serif;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #2a1224;
-    --foreground: #fcfcfc;
-  }
 }
 
 body {
