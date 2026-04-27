@@ -7,12 +7,14 @@ import Formats from "@/components/Formats";
 import Products from "@/components/Products";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import BackgroundShapes from "@/components/BackgroundShapes";
 
 export default function Home() {
   return (
     <SmoothScrollProvider>
       <Header />
       <main className="w-full relative bg-background">
+        <BackgroundShapes />
         <Hero />
         <Numbers />
         <Formats />

@@ -22,7 +22,7 @@ export default function Hero() {
   return (
     <section ref={sectionRef} className="relative w-full min-h-screen flex items-center justify-center bg-background overflow-hidden pt-32 pb-16 lg:pt-24">
       {/* Background Graphic elements */}
-      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-primary/10 lg:rounded-l-[100px] blur-3xl opacity-50" />
+      <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-primary/5 lg:rounded-l-[100px] blur-3xl opacity-20" />
       
       <div className="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <div className="w-full lg:w-[55%] flex flex-col gap-4 md:gap-6 text-left items-start">
@@ -50,10 +50,10 @@ export default function Hero() {
         </div>
 
         <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center hero-image">
-          {/* Forma Orgânica Amarela Inspirada no Print.png - Mais à direita */}
-          <div className="absolute top-1/2 left-[68%] lg:left-[75%] -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[90%] lg:w-[105%] aspect-square z-0 pointer-events-none opacity-95 rotate-[-10deg]">
+          {/* Forma Orgânica Amarela - Maior, mais à direita e com curva extra no topo direito */}
+          <div className="absolute top-1/2 left-[75%] lg:left-[85%] -translate-x-1/2 -translate-y-1/2 w-[115%] sm:w-[105%] lg:w-[130%] aspect-square z-0 pointer-events-none opacity-95 rotate-[-10deg]">
             <svg viewBox="0 0 1000 1000" className="w-full h-full fill-primary drop-shadow-[-20px_15px_40px_rgba(0,0,0,0.15)]">
-              <path d="M 780 220 C 950 350, 950 650, 800 800 C 700 900, 550 950, 400 880 C 300 830, 200 900, 100 800 C 0 700, 50 500, 150 400 C 250 300, 200 150, 350 100 C 500 50, 650 100, 780 220 Z" />
+              <path d="M 700 150 C 850 50, 980 200, 900 350 C 850 450, 950 650, 800 800 C 700 900, 550 950, 400 880 C 300 830, 200 900, 100 800 C 0 700, 50 500, 150 400 C 250 300, 200 150, 350 100 C 500 50, 600 200, 700 150 Z" />
             </svg>
           </div>
 
