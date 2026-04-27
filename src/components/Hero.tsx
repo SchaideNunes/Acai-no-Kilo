@@ -50,12 +50,19 @@ export default function Hero() {
         </div>
 
         <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center hero-image">
+          {/* Forma Orgânica Amarela Inspirada no Print.png - Mais à direita */}
+          <div className="absolute top-1/2 left-[68%] lg:left-[75%] -translate-x-1/2 -translate-y-1/2 w-[100%] sm:w-[90%] lg:w-[105%] aspect-square z-0 pointer-events-none opacity-95 rotate-[-10deg]">
+            <svg viewBox="0 0 1000 1000" className="w-full h-full fill-primary drop-shadow-[-20px_15px_40px_rgba(0,0,0,0.15)]">
+              <path d="M 780 220 C 950 350, 950 650, 800 800 C 700 900, 550 950, 400 880 C 300 830, 200 900, 100 800 C 0 700, 50 500, 150 400 C 250 300, 200 150, 350 100 C 500 50, 650 100, 780 220 Z" />
+            </svg>
+          </div>
+
           <div className="relative w-full max-w-[320px] sm:max-w-[450px] lg:max-w-[600px] aspect-square z-10 flex items-center justify-center">
-            {/* Imagem com sombra projetada suave */}
+            {/* Imagem com sombra projetada suave e topo recortado para esconder o doce */}
             <img
-              src="/assets/Açai_hero.webp"
+              src="/assets/Acaiheropage.webp"
               alt="Açaí Delicioso"
-              className="w-full h-full object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] z-10 relative scale-[0.95] sm:scale-[1.05] lg:scale-[1.15] hover:scale-[1.2] transition-transform duration-1000 ease-out"
+              className="w-full h-full object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] z-10 relative scale-[1.15] sm:scale-[1.25] lg:scale-[1.35] hover:scale-[1.4] transition-transform duration-1000 ease-out [clip-path:inset(18%_0_0_0)]"
             />
             
             {/* Aura Roxa Premium (Substituindo o amarelo) */}
