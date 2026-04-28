@@ -50,8 +50,8 @@ export default function Hero() {
         </div>
 
         <div className="w-full lg:w-[45%] relative mt-8 lg:mt-0 flex justify-center hero-image">
-          {/* Forma Orgânica Amarela - Maior, mais à direita e com curva extra no topo direito */}
-          <div className="absolute top-1/2 left-[75%] lg:left-[85%] -translate-x-1/2 -translate-y-1/2 w-[115%] sm:w-[105%] lg:w-[130%] aspect-square z-0 pointer-events-none opacity-95 rotate-[-10deg]">
+          {/* Forma Orgânica Amarela - Ajustada para ser sutil em todas as resoluções */}
+          <div className="absolute top-1/2 left-[70%] md:left-[75%] lg:left-[85%] -translate-x-1/2 -translate-y-1/2 w-[90%] sm:w-[80%] md:w-[70%] lg:w-[130%] aspect-square z-0 pointer-events-none opacity-95 rotate-[-10deg]">
             <svg viewBox="0 0 1000 1000" className="w-full h-full fill-primary drop-shadow-[-20px_15px_40px_rgba(0,0,0,0.15)]">
               <path d="M 700 150 C 850 50, 980 200, 900 350 C 850 450, 950 650, 800 800 C 700 900, 550 950, 400 880 C 300 830, 200 900, 100 800 C 0 700, 50 500, 150 400 C 250 300, 200 150, 350 100 C 500 50, 600 200, 700 150 Z" />
             </svg>
@@ -65,7 +65,7 @@ export default function Hero() {
               className="w-full h-full object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] z-10 relative scale-[1.15] sm:scale-[1.25] lg:scale-[1.35] hover:scale-[1.4] transition-transform duration-1000 ease-out [clip-path:inset(18%_0_0_0)]"
             />
             
-            {/* Aura Roxa Premium (Substituindo o amarelo) */}
+            {/* Aura Roxa Premium */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary/15 rounded-full z-0 blur-[120px]" />
             <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-secondary/20 rounded-[100%] z-0 blur-[60px]" />
             
