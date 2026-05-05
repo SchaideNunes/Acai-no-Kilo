@@ -62,7 +62,7 @@ export default function Hero() {
             <img
               src="/assets/Acaiheropage.webp"
               alt="Açaí Delicioso"
-              className="w-full h-full object-contain filter drop-shadow-[0_25px_45px_rgba(0,0,0,0.35)] z-10 relative scale-[1.15] sm:scale-[1.25] lg:scale-[1.35] hover:scale-[1.4] transition-transform duration-1000 ease-out [clip-path:inset(18%_0_0_0)]"
+              className="w-full h-full object-contain z-10 relative scale-[1.15] sm:scale-[1.25] lg:scale-[1.35] hover:scale-[1.4] transition-transform duration-1000 ease-out [clip-path:inset(18%_0_0_0)]"
             />
             
             {/* Aura Roxa Premium */}

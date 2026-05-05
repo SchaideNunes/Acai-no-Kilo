@@ -8,10 +8,10 @@ export default function Footer() {
           {/* Coluna 1: Logo e Infos - Ocupa 2 colunas no mobile */}
           <div className="col-span-2 md:col-span-1">
             <div className="relative w-16 h-16 md:w-24 md:h-24 mb-4">
-              <img 
-                 src="/assets/Logo açai.webp" 
-                 alt="Logo Açaí no Kilo" 
-                 className="w-full h-full object-contain"
+              <img
+                src="/assets/Logo açai.webp"
+                alt="Logo Açaí no Kilo"
+                className="w-full h-full object-contain"
               />
             </div>
             <p className="font-sans text-sm md:text-lg text-foreground/70 leading-relaxed">
@@ -70,16 +70,16 @@ export default function Footer() {
             </span>
           </div>
           <div className="flex gap-6">
-             <div className="bg-primary px-3 py-1 rounded-sm -rotate-2">
-                <span className="font-heading text-secondary text-sm">SELADA PELA ABF</span>
-             </div>
-             <div className="bg-secondary px-3 py-1 rounded-sm rotate-1">
-                <span className="font-heading text-white text-sm">DESIGN PREMIUM</span>
-             </div>
+            <div className="bg-primary px-3 py-1 rounded-sm -rotate-2">
+              <span className="font-heading text-secondary text-sm">SELADA PELA ABF</span>
+            </div>
+            <div className="bg-secondary px-3 py-1 rounded-sm rotate-1">
+              <span className="font-heading text-white text-sm">DESIGN PREMIUM</span>
+            </div>
           </div>
         </div>
       </div>
-      
+
       {/* Detalhe Decorativo de Fundo */}
       <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none" />
     </footer>
