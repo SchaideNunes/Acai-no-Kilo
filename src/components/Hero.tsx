@@ -25,7 +25,7 @@ export default function Hero() {
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-primary/5 lg:rounded-l-[100px] blur-3xl opacity-20" />
 
       <div className="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
-        <div className="w-full lg:w-[55%] flex flex-col gap-4 md:gap-6 text-left items-start">
+        <div className="w-full lg:w-[55%] flex flex-col gap-4 md:gap-6 items-center text-center lg:items-start lg:text-left">
           <div className="hero-badge inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full font-sans font-bold text-xs md:text-sm tracking-widest uppercase mb-2">
             <span className="w-2 h-2 rounded-full bg-primary" />
             Franquia Oficial
@@ -38,7 +38,7 @@ export default function Hero() {
           <p className="hero-desc text-fluid-p font-sans text-foreground/70 max-w-xl">
             A oportunidade de investimento lucrativo que você procura. Seja franqueado da marca chancelada 3 anos consecutivos pela ABF.
           </p>
-          <div className="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full sm:w-auto">
+          <div className="hero-cta flex flex-col sm:flex-row justify-center items-center gap-4 w-full sm:w-auto">
             <a
               href="#franquia"
               className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-[0_8px_30px_rgb(147,27,136,0.15)] flex items-center gap-2 group w-full sm:w-auto justify-center"
