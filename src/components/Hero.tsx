@@ -9,7 +9,7 @@ export default function Hero() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
-      
+
       tl.from(".hero-badge", { y: -20, opacity: 0, duration: 0.6 })
         .from(".hero-title", { x: -50, opacity: 0 }, "-=0.3")
         .from(".hero-desc", { y: 20, opacity: 0 }, "-=0.6")
@@ -23,7 +23,7 @@ export default function Hero() {
     <section ref={sectionRef} className="relative w-full min-h-screen flex items-center justify-center bg-background overflow-hidden pt-32 pb-16 lg:pt-24">
       {/* Background Graphic elements */}
       <div className="absolute top-0 right-0 w-full lg:w-1/2 h-full bg-primary/5 lg:rounded-l-[100px] blur-3xl opacity-20" />
-      
+
       <div className="max-w-[1400px] mx-auto px-6 w-full relative z-10 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
         <div className="w-full lg:w-[55%] flex flex-col gap-4 md:gap-6 text-left items-start">
           <div className="hero-badge inline-flex items-center gap-2 bg-secondary/10 text-secondary px-4 py-2 rounded-full font-sans font-bold text-xs md:text-sm tracking-widest uppercase mb-2">
@@ -39,7 +39,7 @@ export default function Hero() {
             A oportunidade de investimento lucrativo que você procura. Seja franqueado da marca chancelada 3 anos consecutivos pela ABF.
           </p>
           <div className="hero-cta flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full sm:w-auto">
-            <a 
+            <a
               href="#franquia"
               className="bg-secondary text-white font-heading text-xl px-8 py-4 rounded-base hover:bg-primary hover:text-secondary active:scale-95 transition-all shadow-[0_8px_30px_rgb(147,27,136,0.15)] flex items-center gap-2 group w-full sm:w-auto justify-center"
             >
@@ -64,11 +64,11 @@ export default function Hero() {
               alt="Açaí Delicioso"
               className="w-full h-full object-contain z-10 relative scale-[1.15] sm:scale-[1.25] lg:scale-[1.35] hover:scale-[1.4] transition-transform duration-1000 ease-out [clip-path:inset(18%_0_0_0)]"
             />
-            
+
             {/* Aura Roxa Premium */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary/15 rounded-full z-0 blur-[120px]" />
             <div className="absolute top-[60%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[40%] bg-secondary/20 rounded-[100%] z-0 blur-[60px]" />
-            
+
             {/* Sombra de Contato (Ground Shadow) para dar peso */}
             <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 w-[60%] h-[20px] bg-black/20 rounded-full z-0 blur-xl" />
           </div>
